@@ -12,10 +12,6 @@ const storageRoutes = require('./backend/routes/storageRoutes');
 const mongoose = require('mongoose');
 const db = require('./backend/config/db');
 
-// Set mongoose options
-mongoose.set('useFindAndModify', false);
-mongoose.set('useUnifiedTopology', true);
-mongoose.set('useNewUrlParser', true);
 
 // Connect to the database using mongoose
 mongoose.connect(db.uri, {

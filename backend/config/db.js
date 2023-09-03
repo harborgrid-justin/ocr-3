@@ -5,10 +5,13 @@ const uri = process.env.MONGODB_URI || 'mongodb+srv://justinsaadein:ei3KgDhF@clu
 
 const db = mongoose.connection;
 
-mongoose.connect(uri, {
+mongoose.connect(db.uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+}).catch(err => {
+  console.error('MongoDB connection error:', err);
 });
+
 
 db.on('error', console.error.bind(console, 'Connection error:'));
 db.once('open', () => {
